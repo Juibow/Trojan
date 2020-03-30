@@ -196,7 +196,7 @@ EOF
 	composer install
 	npm install
 	rm -rf /var/www/trojan-panel/.env
-	wget https://raw.githubusercontent.com/V2RaySSR/Trojan_Panel/master/.env
+	wget https://raw.githubusercontent.com/Juibow/Trojan/master/.env
 	php artisan key:generate
 	sed -i "s/your_domain/$your_domain/;" /var/www/trojan-panel/.env
 	sed -i "s/your_password/$trojan_passwd/;" /var/www/trojan-panel/.env
@@ -214,13 +214,13 @@ EOF
 	sleep 2s
 	cd /etc/nginx/sites-available
 	rm -rf /etc/nginx/sites-available/default
-	wget -P /etc/nginx/sites-available https://raw.githubusercontent.com/V2RaySSR/Trojan_Panel/master/default
+	wget -P /etc/nginx/sites-available https://raw.githubusercontent.com/Juibow/Trojan/master/default
 	sed -i "s/your_domain/$your_domain/;" /etc/nginx/sites-available/default
 	sed -i "s/vps_ip/$local_addr/;" /etc/nginx/sites-available/default
 	systemctl restart nginx
 	cd /root
 	rm -rf /etc/nginx/nginx.conf
-	wget -P /etc/nginx https://raw.githubusercontent.com/V2RaySSR/Trojan_Panel/master/nginx.conf
+	wget -P /etc/nginx https://raw.githubusercontent.com/Juibow/Trojan/master/nginx.conf
 	systemctl restart trojan nginx
 cat > /usr/local/etc/trojan/Trojan配置信息.txt <<-EOF
 ==================================================
